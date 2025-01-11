@@ -253,7 +253,7 @@ export default function Filter()
             </div>
           </div>
 
-          <Button type="submit">Aplicar</Button>
+          <Button type="submit">Aplicar</Button> {/*something */}
         </form> 
     );
 }

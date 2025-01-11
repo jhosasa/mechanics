@@ -12,7 +12,11 @@ export { ImarkerLocation } from "@/components/icons/ImarkerLocation";
 export { Iwatch } from "@/components/icons/Iwatch";
 export { Ikey } from "@/components/icons/Ikey";
 export { Icash } from "@/components/icons/Icash";
-
+export { Iplus } from "@/components/icons/Iplus";
+export { Iupload } from "@/components/icons/Iupload";
+export { Igoogle } from "@/components/icons/Igoogle";
+export { Ilogout } from "@/components/icons/Ilogout";
 export {Icar} from "@/components/icons/Icar";
 export {Imoto} from "@/components/icons/Imoto";
 export {Istar} from "@/components/icons/Istar";
+

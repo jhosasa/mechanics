@@ -1,24 +1,25 @@
 import { useState } from "react";
+import { useAuthGoogle } from "@/hooks/useAuthGoogle";
+import { useSelectOptionButton } from "@/hooks/useSelectOptionButton";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
-import Header from "@/components/Header";
 import DynamicModalButton from "@/components/DynamicModalButton";
 import Menu from "@/components/pages/home/header/Menu";
-import {
-  Ihamburguer,
-  Ifilter,
-  Iperson,
-  ImagnifyingGlass,
-
-} from "@icons";
+import Section from "@/components/Section";
+import LogoutWithImage from "@/components/LogoutWithImage";
+import Login from "@/components/pages/home/login/Login";
+import Register from "@/components/pages/home/login/Register";
+import RegisterGoogle from "@/components/pages/home/login/RegisterGoogle";
 import Filter from "@/components/Filters/Filter";
-
-
+import OptionsButtonLogin from "@/components/OptionsButtonLogin";
+import { Ihamburguer, Ifilter, Iperson, ImagnifyingGlass } from "@icons";
 
 export default function HomeHeader() {
   const [visibilityMenu, setVisibilityMenu] =
     useState<string>("-translate-x-full");
 
+  const { selectOptionButton, setSelectOptionButton } = useSelectOptionButton("login");
+  const { isSessionUser } = useAuthGoogle();
 
   const handleMenu = () => {
     setVisibilityMenu((prev) =>
@@ -27,8 +28,6 @@ export default function HomeHeader() {
   };
 
   const isVisible = visibilityMenu === "translate-x-0";
-
-
 
   return (
     <>
@@ -40,6 +39,7 @@ export default function HomeHeader() {
       )}
       <Menu visibilityMenu={visibilityMenu} handleMenu={handleMenu} />
       <Header className="gap-3 justify-between p-5 absolute z-20 w-full">
+      <Section className="flex gap-3 justify-between p-5 absolute z-20 w-full">
         <Button
           variant="border"
           onClick={handleMenu}
@@ -59,14 +59,30 @@ export default function HomeHeader() {
             <ImagnifyingGlass />
           </div>
         </div>
+
         <DynamicModalButton icon={<Ifilter />} titleModal="Filtro">
           <Filter/>
         </DynamicModalButton>
 
-        <DynamicModalButton icon={<Iperson />} titleModal="Login">
-          <div>Aqui va el contenido del login</div>
-        </DynamicModalButton>
-      </Header>
+        {!isSessionUser ? (
+          <DynamicModalButton icon={<Iperson />}>
+            <OptionsButtonLogin
+              selectOptionButton={selectOptionButton}
+              setSelectOptionButton={setSelectOptionButton}
+            />
+            <RegisterGoogle
+              textButton={
+                selectOptionButton === "login"
+                  ? "Conectar con Google"
+                  : "Registrarse con Google"
+              }
+            />
+            {selectOptionButton === "login" ? <Login /> : <Register />}
+          </DynamicModalButton>
+        ) : (
+          <LogoutWithImage />
+        )}
+      </Section>
     </>
   );
 }

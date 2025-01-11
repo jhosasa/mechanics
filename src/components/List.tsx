@@ -14,7 +14,7 @@ interface ListItemProps {
     children: React.ReactNode;
 }
 
-export function ListItem({ type, className="", children }: ListItemProps) {
+export function ListItem({ type, className="", children, ...props }: ListItemProps) {
     const as = {
         "menu": "flex gap-3 py-3 px-2 rounded-md cursor-pointer hover:bg-gray-200",
         "option": "flex gap-2",
@@ -22,5 +22,5 @@ export function ListItem({ type, className="", children }: ListItemProps) {
         "normal": "text-sm",
     }
 
-    return <li className={`${as[type]} ${className}`}>{children}</li>;
+    return <li className={`${as[type]} ${className}`} {...props}>{children}</li>;
 }

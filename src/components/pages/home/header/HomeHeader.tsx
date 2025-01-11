@@ -10,13 +10,14 @@ import LogoutWithImage from "@/components/LogoutWithImage";
 import Login from "@/components/pages/home/login/Login";
 import Register from "@/components/pages/home/login/Register";
 import RegisterGoogle from "@/components/pages/home/login/RegisterGoogle";
-
+import Filter from "@/components/Filters/Filter";
+import OptionsButtonLogin from "@/components/OptionsButtonLogin";
 import { Ihamburguer, Ifilter, Iperson, ImagnifyingGlass } from "@icons";
-import OptionsButtonLogin from "../../../OptionsButtonLogin";
 
 export default function HomeHeader() {
   const [visibilityMenu, setVisibilityMenu] =
     useState<string>("-translate-x-full");
+
   const { selectOptionButton, setSelectOptionButton } = useSelectOptionButton("login");
   const { isSessionUser } = useAuthGoogle();
 
@@ -37,6 +38,7 @@ export default function HomeHeader() {
         ></div>
       )}
       <Menu visibilityMenu={visibilityMenu} handleMenu={handleMenu} />
+      <Header className="gap-3 justify-between p-5 absolute z-20 w-full">
       <Section className="flex gap-3 justify-between p-5 absolute z-20 w-full">
         <Button
           variant="border"
@@ -59,7 +61,7 @@ export default function HomeHeader() {
         </div>
 
         <DynamicModalButton icon={<Ifilter />} titleModal="Filtro">
-          <div>Aqui va el contenido del filtro</div>
+          <Filter/>
         </DynamicModalButton>
 
         {!isSessionUser ? (

@@ -12,3 +12,7 @@ export { ImarkerLocation } from "@/components/icons/ImarkerLocation";
 export { Iwatch } from "@/components/icons/Iwatch";
 export { Ikey } from "@/components/icons/Ikey";
 export { Icash } from "@/components/icons/Icash";
+
+export {Icar} from "@/components/icons/Icar";
+export {Imoto} from "@/components/icons/Imoto";
+export {Istar} from "@/components/icons/Istar";

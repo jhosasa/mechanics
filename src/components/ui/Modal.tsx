@@ -21,7 +21,7 @@ export default function Modal({
         >
             <dialog
                 open={isVisible}
-                className="absolute inset-0 z-50 rounded-xl bg-white p-6 max-w-lg w-screen"
+                className="absolute inset-0 z-50 rounded-xl bg-white p-6 max-w-lg w-screen text-black"
             >
                 <header>
                     <div className="flex justify-end mb-3">

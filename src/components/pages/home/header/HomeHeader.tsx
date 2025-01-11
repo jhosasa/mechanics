@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuthGoogle } from "@/hooks/useAuthGoogle";
 import { useSelectOptionButton } from "@/hooks/useSelectOptionButton";
 import Input from "@/components/ui/Input";
+import Header from "@/components/Header";
 import Button from "@/components/ui/Button";
 import DynamicModalButton from "@/components/DynamicModalButton";
 import Menu from "@/components/pages/home/header/Menu";
@@ -18,7 +19,8 @@ export default function HomeHeader() {
   const [visibilityMenu, setVisibilityMenu] =
     useState<string>("-translate-x-full");
 
-  const { selectOptionButton, setSelectOptionButton } = useSelectOptionButton("login");
+  const { selectOptionButton, setSelectOptionButton } =
+    useSelectOptionButton("login");
   const { isSessionUser } = useAuthGoogle();
 
   const handleMenu = () => {
@@ -39,7 +41,6 @@ export default function HomeHeader() {
       )}
       <Menu visibilityMenu={visibilityMenu} handleMenu={handleMenu} />
       <Header className="gap-3 justify-between p-5 absolute z-20 w-full">
-      <Section className="flex gap-3 justify-between p-5 absolute z-20 w-full">
         <Button
           variant="border"
           onClick={handleMenu}
@@ -60,8 +61,11 @@ export default function HomeHeader() {
           </div>
         </div>
 
-        <DynamicModalButton icon={<Ifilter />} titleModal="Filtro">
-          <Filter/>
+        <DynamicModalButton
+          icon={<Ifilter />}
+          classNameModal="h-3/4"
+        >
+          <Filter />
         </DynamicModalButton>
 
         {!isSessionUser ? (
@@ -82,7 +86,7 @@ export default function HomeHeader() {
         ) : (
           <LogoutWithImage />
         )}
-      </Section>
+      </Header>
     </>
   );
 }

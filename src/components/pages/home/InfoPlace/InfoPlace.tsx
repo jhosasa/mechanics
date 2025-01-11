@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Tipografy from "@/components/Tipografy";
 import Image from "@/components/Image";
 import { List, ListItem } from "@/components/List";
+import Section from "@/components/Section";
 
 import {
     Iclosex,
@@ -22,11 +23,13 @@ interface InfoPlaceProps {
     handleWorkShop: () => void;
     movingWorkShop: string;
     setMovingWorkShop: React.Dispatch<React.SetStateAction<string>>;
+    isVisible: boolean;
 }
 
 export default function InfoPlace({
     handleWorkShop,
     movingWorkShop,
+    isVisible,
 }: InfoPlaceProps) {
     const images = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwW0oqt9Seh3IodYGwH5hRJsZZn9RGu4bsQA&s",
@@ -48,16 +51,19 @@ export default function InfoPlace({
     };
     return (
         <Aside
-            className={`${movingWorkShop} absolute z-40 transition-transform right-0 top-0 lg:w-2/6`}
+            className={`${movingWorkShop} absolute z-40 transition-tranform ease-in-out right-0 duration-300 top-0 ${
+                isVisible ? "lg:w-2/6" : "hidden"
+            }`}
         >
-            <div className="p-5">
+            <div className="lg:p-5 px-4 py-5">
                 <Header className="justify-between mb-5">
                     <Tipografy as="h3">Auto Service Pro</Tipografy>
                     <Button variant="normal" onClick={handleWorkShop}>
                         <Iclosex />
                     </Button>
                 </Header>
-                <div className="relative my-4">
+
+                <Section className="relative my-4">
                     <div className="flex overflow-hidden">
                         <Image
                             src={images[currentIndex]}
@@ -74,7 +80,8 @@ export default function InfoPlace({
                             <IarrowRight />
                         </Button>
                     </div>
-                </div>
+                </Section>
+
                 <List className="flex-col gap-2 my-7">
                     <ListItem type="option" className="text-sm font-light">
                         <ImarkerLocation />
@@ -86,11 +93,11 @@ export default function InfoPlace({
                     </ListItem>
                     <ListItem type="option" className="font-bold">
                         <Icash />
-                        Bs. 45 / hora
+                        Bs. 45 / precio estimado
                     </ListItem>
                 </List>
 
-                <div className="flex gap-3 mt-5 mb-8 items-center">
+                <Section className="flex gap-3 mt-5 mb-8 items-center">
                     <Ikey />
                     <List className="gap-3">
                         <ListItem type="service">Motos</ListItem>
@@ -99,7 +106,8 @@ export default function InfoPlace({
                         </ListItem>
                         <ListItem type="service">Motor</ListItem>
                     </List>
-                </div>
+                </Section>
+
                 <Button variant="primary" type="button">
                     Solicitar mecánico
                 </Button>

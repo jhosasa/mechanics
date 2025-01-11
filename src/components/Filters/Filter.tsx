@@ -251,7 +251,7 @@ export default function Filter()
                 </div>
               ))}
             </div>
-          </div>
+          </div> {/* pull-request */}
 
           <Button type="submit">Aplicar</Button> {/*something */}
         </form> 

@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import Button from "@/components/ui/Button";
 import DynamicModalButton from "@/components/DynamicModalButton";
 import Menu from "@/components/pages/home/header/Menu";
-import Section from "@/components/Section";
 import LogoutWithImage from "@/components/LogoutWithImage";
 import Login from "@/components/pages/home/login/Login";
 import Register from "@/components/pages/home/login/Register";

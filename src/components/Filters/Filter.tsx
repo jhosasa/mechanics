@@ -11,7 +11,6 @@ export default function Filter() {
   const [hoveredRating, setHoveredRating] = useState<number>(0);
   const [showOtherInput, setShowOtherInput] = useState<boolean>(false);
 
-  // Estados para controlar la selección de botones
   const [selectedCar, setSelectedCar] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
 

@@ -8,7 +8,7 @@ export default function LogoutWithImage() {
   const { infoUser, handleSignOut } = useAuthGoogle();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleToggleMenu = () => setIsMenuOpen((prev) => !prev);
-  console.log("infoUser", infoUser);
+
   return (
     <div className="relative">
       {/* Botón del avatar */}
@@ -19,12 +19,9 @@ export default function LogoutWithImage() {
         className="flex items-center"
       >
         <img
-          src={infoUser?.user_metadata?.avatar_url + "-mo" || "/default-avatar.png"}
+          src={infoUser?.user_metadata?.avatar_url + "-mo"}
           className="w-12 h-10 rounded-full object-cover"
-          alt={
-            infoUser?.identities?.[0]?.identity_data?.full_name ||
-            "User session image"
-          }
+          alt={infoUser?.identities?.[0]?.identity_data?.full_name}
         />
       </Button>
 

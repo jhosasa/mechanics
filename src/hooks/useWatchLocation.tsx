@@ -26,7 +26,7 @@ export function useWatchLocation() {
       const { latitude, longitude, speed } = position.coords;
       const valueSpeed = !speed ? 0 : speed;
       const newLocation = { latitude, longitude, valueSpeed};
-      console.log("New location:", newLocation);
+      // console.log("New location:", newLocation);
       if (
         newLocation.latitude !== location.latitude ||
         newLocation.longitude !== location.longitude

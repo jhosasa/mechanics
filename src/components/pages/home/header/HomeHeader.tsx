@@ -68,7 +68,7 @@ export default function HomeHeader() {
         </DynamicModalButton>
 
         {!isSessionUser ? (
-          <DynamicModalButton icon={<Iperson />}>
+          <DynamicModalButton icon={<Iperson />}>  
             <OptionsButtonLogin
               selectOptionButton={selectOptionButton}
               setSelectOptionButton={setSelectOptionButton}

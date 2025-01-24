@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import { Igoogle } from "@icons";
 
 const { VITE_URL_SUPABASE: URL, VITE_API_TOKEN_SUPABASE: API } = import.meta
-  .env;
+ .env;
 export const supabase = createClient(URL as string, API as string);
 
 interface RegisterGoogleProps {

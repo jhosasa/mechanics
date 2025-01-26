@@ -14,10 +14,10 @@ export default function Button({
 }: ButtonProps) {
 
     const variantClass = {
-        border: "text-slate-950 border bg-white px-3 py-2 rounded-md",
-        primary: "bg-gray-950 w-full text-white px-3 py-2 rounded-md hover:opacity-75",
-        normal: "text-slate-950",
-        indicator: "rounded-full bg-white h-max p-1 shadow-md"
+        border: "text-slate-950 border bg-white px-3 py-2 rounded-md cursor-pointer",
+        primary: "bg-gray-950 w-full text-white px-3 py-2 rounded-md hover:opacity-75 cursor-pointer",
+        normal: "text-slate-950 cursor-pointer",
+        indicator: "rounded-full bg-white h-max p-1 shadow-md cursor-pointer"
     };
 
     return (

@@ -23,7 +23,7 @@ export function useFetch({ url, method = "GET", values, autoFetch = true }: UseF
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
+        credentials: "include"
       };
 
       if (method !== "GET" && values) {

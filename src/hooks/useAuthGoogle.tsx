@@ -13,7 +13,6 @@ export function useAuthGoogle() {
   useEffect(() => {
     const fetchSession = async () => {
       const { data } = await supabase.auth.getSession();
-      console.log("Session data:", data);
       setInfoUser(data.session?.user);
       setIsSessionUser(data.session !== null);
     };
@@ -23,7 +22,6 @@ export function useAuthGoogle() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      console.log("Auth state changed:", session);
       setInfoUser(session?.user);
     });
 

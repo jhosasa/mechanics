@@ -9,7 +9,7 @@ const ButtonStartEnd: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-10">
       <Button
         onClick={handleButtonClick}
         className={`px-6 py-3 rounded-3xl text-base font-semibold shadow-lg transition-all duration-300 ${
